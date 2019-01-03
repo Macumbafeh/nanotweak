@@ -13,9 +13,9 @@ It consists of the following modules:
     * dismount at flightmaster
     * queue for BG when talking to battlemaster
     * accept invites from friends and guildmates
-    * and open bags at vendor, ah, etc.
+    * open bags at vendor, mail, ah, etc.
 * slash - add a bunch of additional /commands: 
-    * /clearbars to remove alls spells from actionbars
+    * /clearbars to remove all spells from actionbars
     * /clearquests to remove all quests from the questlog
     * /volume or /vol to change master volume
     * /cameradist or /camera to set max camera distance
@@ -26,10 +26,10 @@ It consists of the following modules:
     * /helm and /cloak to toggle display of them (they keep reseting..)
     * and others..
 * misc - changes:
-    * Increases maximum chat lines to 1024.
-    * Replaces the confirm deletion box with one that requires only accepting, instead of typing "DELETE"
-    * Hides Magnifying glass button and zoom out button from worldmap
-* tooltip - adds spell/item icon to tooltips
+    * Increases maximum chat lines to 1024
+    * Replaces the confirm deletion prompt that asks to type "DELETE" with one that only asks to accept
+    * Hides the magnifying glass and zoom out buttons from the worldmap
+* tooltip - adds spell and item icon to tooltips
 * smartchannel - automatically select bg/raid/party channel with /i
 
 
