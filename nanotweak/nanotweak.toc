@@ -1,0 +1,11 @@
+## Interface: 20400
+## Title: |cffa0f6aananotweak|r
+## Notes: compilation of misc ui tweaks
+## Author: null
+## Version: 1.0
+
+modules\automation.lua
+modules\slash.lua
+modules\tooltip.lua
+modules\misc.lua
+modules\smartchannel.lua
