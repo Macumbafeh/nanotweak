@@ -25,6 +25,7 @@
 	local flightmaster = true
 	local joinqueue = true
 	local openbags = true
+	local closebags = true
 	local friendinv = true
 	local guildinv = true
 
@@ -121,7 +122,7 @@
 
 ---------------------------------------------------------------------------------------------
 
-	function f:PARTY_INVITE_REQUEST(self, event, name)	
+	function f:PARTY_INVITE_REQUEST(name)
 		if friendinv then
 			for i = 1, GetNumFriends() do
 				if name == GetFriendInfo(i) then
@@ -146,7 +147,7 @@
 ---------------------------------------------------------------------------------------------
 
 	f:SetScript("OnEvent", function(self, event, ...)
-		if self[event] then self[event](...) end
+		if self[event] then self[event](self, ...) end
 	end)
 
 	if selltrash or repair then
@@ -183,6 +184,24 @@
 			"GUILDBANKFRAME_OPENED"
 		}
 
+		local a = CreateFrame("Frame")
+
+		a:SetScript("OnEvent", function() 
+			if ElvUI or NanoUI then
+				OpenBackpack()
+			else
+				OpenAllBags()
+			end
+		end)
+
+		for i, v in pairs(open) do
+			a:RegisterEvent(v)
+		end
+
+	end
+
+	if closebags then
+
 		local close = {
 			"MAIL_CLOSED",
 			"TRADE_CLOSED",
@@ -193,22 +212,9 @@
 			"GUILDBANKFRAME_CLOSED"
 		}
 
-		local a = CreateFrame("Frame")
 		local b = CreateFrame("Frame")
 
-
-		a:SetScript("OnEvent", function() 
-			if ElvUI or NanoUI then
-				OpenBackpack()
-			else
-				OpenAllBags()
-			end
-		end)
 		b:SetScript("OnEvent", function() CloseAllBags() end)
-
-		for i, v in pairs(open) do
-			a:RegisterEvent(v)
-		end
 
 		for i, v in pairs(close) do
 			b:RegisterEvent(v)
@@ -216,4 +222,4 @@
 
 	end
 
-	---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
